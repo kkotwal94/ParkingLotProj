@@ -1,4 +1,4 @@
-# ParkingLotProj
+# Parking Lot Project
 A Parking Lot System
 
 A parking lot system programmed in NodeJS, ReactJS, ExpressJS, and templating. I used mongodb for a database. 
