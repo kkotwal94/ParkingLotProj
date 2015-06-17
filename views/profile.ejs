@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Pyle Parking Profile</title>
+		<meta name="description" content="Pyle Parking" />
+		<meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
+		<meta name="author" content="Karan Kotwal" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="../views/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../views/css/component.css" />
+		  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		      <link rel="stylesheet" href=" ../views/style.css">
+    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+	<script src="/build/JSXTransformer.js"></script>
+      <script src="/build/react.js"</script>
+		<script src="../views/js/modernizr.custom.js"></script>
+	</head>
+	
+	<style>
+	* {
+	color : black;
+	}
+	
+	body {
+	background-size: cover;
+	background : #e74c3c;
+				   min-height:100%;
+	 -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                   -o-background-size: cover;
+                   background-size: cover;
+	}
+	
+	ul
+                {
+					list-style-type: none;
+				}
+	</style>
+	<body>
+		<!-- All modals added here for the demo. You would of course just have one, dynamically created -->
+		<div class="md-modal md-effect-1" id="modal-1">
+			<div class="md-content">
+				<h3>Update Profile</h3>
+				<div id = 'contents'>
+					
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="md-modal md-effect-2" id="modal-2">
+			<div class="md-content2">
+				<h3>Add Vehicle</h3>
+				<div id = 'vehicle'>
+					
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="/logout"><span>Logout</span></a>
+				
+			</div>
+			<header>
+				<h1>Pyle People Parking Profile </h1>
+			</header>
+			
+			  
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-4">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> <%=user.local.email %>'s Profile</h3>
+
+                    <p>
+                        <strong>ID</strong>: <%= user._id %><br>
+                        <strong>Username</strong>: <%= user.local.email %><br>
+                        <strong>First Name</strong>: <%= user.local.firstName %><br>
+                        <strong>Last Name</strong>: <%= user.local.lastName %><br>
+                        <strong>Age</strong>: <%= user.local.age %><br>
+						<strong>Department</strong>: <%= user.local.department %><br>
+                        <strong>Current Vehicle(s)</strong>: <%= vh.make + " " + vh.model%><br>
+						<strong>Win Rate</strong> : <%= user.local.random%><br>
+						<strong>Parking Lot</strong> : <%= user.local.lot %><br>
+						<strong>Parking Tag</strong> : <%= user.local.tag %><br>
+						<strong>Hanging Tag</strong> : <%= user.local.hangingtag %><br>
+						<strong>Parking Slot #</strong> : <%= user.local.slot %><br>
+                    </p>
+					<button class="md-trigger btn btn-primary" data-modal="modal-1" >Update User Info</button>
+            </div>
+        </div>
+		
+		<div class="col-sm-8">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> <%=user.local.email %>'s Primary Vehicle</h3>
+
+                    <p>
+                        <strong>ID</strong>: <%= vh._id %><br>
+                        <strong>Color</strong>: <%= vh.color %><br>
+                        <strong>Type</strong>: <%= vh.type %><br>
+                        <strong>Model</strong>: <%= vh.model%><br>
+                        <strong>Make</strong>: <%= vh.make %><br>
+						<strong>License</strong>: <%= vh.license %><br>
+                        
+                    </p>
+					
+					<h4><span class="fa fa-user"></span> <%=user.local.email %>'s Vehicles</h4>
+					<div id = "cars">
+                    
+                    </div>
+					    
+					<button class="md-trigger btn btn-primary" data-modal="modal-2" >Add Vehicle</button>
+            </div>
+			
+				
+        </div>
+	
+		
+		 
+		 <div class="col-sm-8">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> <%=user.local.email %>'s Violations</h3>
+					<div id = "violations">
+                    
+                    </div>
+            </div>
+         </div>
+    </div>
+		</div><!-- /container -->
+		<div class="md-overlay"></div><!-- the overlay element -->
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="../views/js/classie.js"></script>
+		<script src="../views/js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script src="../views/js/cssParser.js"></script>
+		<script src="../views/js/css-filters-polyfill.js"></script>
+		<script type="text/jsx;harmony=true" src = "../public/allVehicles.jsx"></script>
+<script type="text/jsx;harmony=true" src = "../public/violationview.jsx"></script>
+<script type="text/jsx;harmony=true" src = "../public/updateProfile.jsx"></script>
+<script type="text/jsx;harmony=true" src = "../public/addVehicle.jsx"></script>	
+	</body>
+</html>

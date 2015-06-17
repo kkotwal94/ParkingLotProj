@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Admin</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		 
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="/views/css/styles.css" rel="stylesheet">
+	
+	</head>
+	<body>
+<!-- header -->
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/profile">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin Options <span class="caret"></span></a>
+                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                        <li><a href="/data">View Data/Hit Lottery</a></li>
+						<li><a href="/violations">View Violations</a></li>
+						<li><a href="/addviolation">Add Violations</a></li>
+                    </ul>
+                </li>
+                <li><a href="/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Header -->
+
+<!-- Main -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <!-- Left column -->
+            <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Tools</strong></a>
+
+            <hr>
+
+            <ul class="nav nav-stacked">
+                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
+                    <ul class="nav nav-stacked collapse in" id="userMenu">
+                        <li class="active"> <a href="/dashboard"><i class="/profile"></i> Home</a></li>
+                        <li><a href="/data"><i class="glyphicon glyphicon-user"></i> All Users </a></li>
+                        <li><a href="/vehicles"><i class="glyphicon glpyhicon-chevron-right"></i> All Vehicles</a></li>
+                        <li><a href="/allViolation"><i class="glyphicon glyphicon-comment"></i> All Violations</a></li>
+                        <li><a href="/parkinglot"><i class="glyphicon glyphicon-user"></i> Current Parking Lot</a></li>
+                        <li><a href="/about"><i class="glyphicon glyphicon-flag"></i> About</a></li>
+                        <li><a href="/rules"><i class="glyphicon glyphicon-exclamation-sign"></i> Rules</a></li>
+                        <li><a href="/logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-header">
+                    <a href="#" data-toggle="collapse" data-target="#menu3"> Social Media <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <ul class="nav nav-stacked collapse" id="menu3">
+                        <li><a href="http://www.aduiepyle.com/"><i class="glyphicon glyphicon-circle"></i> A Duie Pyle </a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <a href="https://github.com/kkotwal94/ParkingLotProj"><strong><i class="glyphicon glyphicon-align-justify"></i> Github</strong></a>
+
+            <hr>
+
+         
+
+            
+        </div>
+        <!-- /col-3 -->
+        <div class="col-sm-9">
+
+            
+            <hr>
+
+            <div class="row">
+                <!-- center left-->
+                <div class="col-md-12">
+                   
+
+                    
+
+                    <div class="btn-group btn-group-justified">
+                        <a href="/data" class="btn btn-primary col-sm-3">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <br> View Users/Lottery
+                        </a>
+                        <a href="/addviolation" class="btn btn-primary col-sm-3">
+                            <i class="glyphicon glyphicon-flag"></i>
+                            <br> Add Violation
+                        </a>
+                        <a href="/allViolation" class="btn btn-primary col-sm-3">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                            <br> View Violations
+                        </a>
+                        <a href="/help" class="btn btn-primary col-sm-3">
+                            <i class="glyphicon glyphicon-question-sign"></i>
+                            <br> Help
+                        </a>
+                    </div>
+
+                    <hr>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Reports</h4></div>
+                        <div class="panel-body">
+							<div id = Users>
+							</div>
+                            <div>
+<a id="dlink"  style="display:none;"></a>
+
+<input type="button" onclick="tableToExcel('Data', 'name', 'myfile.xls')" value="Export to Excel">
+</div>
+                        </div>
+                        <!--/panel-body-->
+                    </div>
+                    <!--/panel-->
+
+                    <hr>
+
+                    <!--tabs-->
+                    
+
+                    </div>
+                    <!--/tabs-->
+
+                    <hr>
+                    
+                </div>
+                <!--/col-->
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Notices</h4></div>
+                        <div class="panel-body">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                This is a dismissable alert.. just sayin'.
+                            </div>
+                            <p>This is a dashboard-style layout that uses Bootstrap 3. You can use this template as a starting point to create something more unique.</p>
+                            <p>Visit the Bootstrap Playground at <a href="http://bootply.com">Bootply</a> to tweak this layout or discover more useful code snippets.</p>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Visits</th>
+                                    <th>ROI</th>
+                                    <th>Source</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>45</td>
+                                    <td>2.45%</td>
+                                    <td>Direct</td>
+                                </tr>
+                                <tr>
+                                    <td>289</td>
+                                    <td>56.2%</td>
+                                    <td>Referral</td>
+                                </tr>
+                                <tr>
+                                    <td>98</td>
+                                    <td>25%</td>
+                                    <td>Type</td>
+                                </tr>
+                                <tr>
+                                    <td>..</td>
+                                    <td>..</td>
+                                    <td>..</td>
+                                </tr>
+                                <tr>
+                                    <td>..</td>
+                                    <td>..</td>
+                                    <td>..</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="glyphicon glyphicon-wrench pull-right"></i>
+                                <h4>Post Request</h4>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form form-vertical">
+                                <div class="control-group">
+                                    <label>Name</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Enter Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label>Message</label>
+                                    <div class="controls">
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label>Category</label>
+                                    <div class="controls">
+                                        <select class="form-control">
+                                            <option>options</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label></label>
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-primary">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--/panel content-->
+                    </div>
+                    <!--/panel-->
+
+
+                    <!--/panel-->
+
+                </div>
+                <!--/col-span-6-->
+
+            </div>
+            <!--/row-->
+
+            <hr>
+
+            
+        </div>
+        <!--/col-span-9-->
+    </div>
+</div>
+<!-- /Main -->
+
+
+
+
+<!-- /.modal -->
+	<!-- script references -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+  	    <script src="/build/JSXTransformer.js"></script>
+        <script src="/build/react.js"></script>
+		<script src="views/js/bootstrap.min.js"></script>
+		<script src="views/js/scripts.js"></script>
+		<script type="text/jsx;harmony=true" src = "../public/datatable.jsx"></script>
+<script>
+var tableToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name, filename) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+
+            document.getElementById("dlink").href = uri + base64(format(template, ctx));
+            document.getElementById("dlink").download = filename;
+            document.getElementById("dlink").click();
+
+        }
+    })()
+</script>
+	</body>
+</html

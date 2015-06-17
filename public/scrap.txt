@@ -1,0 +1,16 @@
+User.findById(viol.user, function (err, user) {
+						if(viol.user != null) {
+							for (var i = 0; i < user.local.violations.length; i++) {
+								if(user.local.violations[i] === viol.id){
+									delete user.local.violations[i];
+								}
+							
+						    }
+							
+							for(var z = 0; z < user.local.vehicles.length; i++){
+								if(user.local.vehicles[z] === viol.vehicle) {
+									delete user.local.vehicle[i];
+								}
+							}
+					    }
+					});
