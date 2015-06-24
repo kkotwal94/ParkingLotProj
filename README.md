@@ -8,3 +8,5 @@ users to stop at. The admin can most importantly add violations and notes, wheth
 when adding a violation, the admin may assign a vehicle a violation, and then a vehicle to a user when they figure it out who the violation belongs to.
 
 The user may do all the same but they cannot edit info like parking lot #, or tag #'s. They can however have multiple vehicles and select the one that is currently in use. 
+
+If you decide to pull it, create some users, and create a user with the id Admin
