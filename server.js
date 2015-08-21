@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080; // use server port or 8080
+var port = process.env.PORT || 8083; // use server port or 8080
 var mongoose = require('mongoose'); // require mongo package
 var passport = require('passport'); //for authentication
 var flash = require('connect-flash');
